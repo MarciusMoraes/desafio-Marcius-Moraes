@@ -27,6 +27,10 @@ class CaixaDaLanchonete {
             return "Forma de pagamento inválida!";
         }
         else {
+            for(let j=0; j<itens.length;j++){
+                actualItem = itens[j].split(",");
+                auxArray.push(actualItem[0]);
+            }
             for (let i = 0; i < itens.length; i++) {
                 actualItem = itens[i].split(",");
                 if (codeList.indexOf(actualItem[0]) < 0) {
@@ -38,7 +42,6 @@ class CaixaDaLanchonete {
                 if ((actualItem[0] == "chantily" && (auxArray.indexOf("cafe") < 0)) || (actualItem[0] == "queijo" && (auxArray.indexOf("sanduiche") < 0))) {
                     return "Item extra não pode ser pedido sem o principal"
                 }
-                auxArray.push(actualItem[0]);
             }
             return "R$ ";
         }
