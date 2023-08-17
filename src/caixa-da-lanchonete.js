@@ -1,15 +1,15 @@
 class CaixaDaLanchonete {
     calcularValorDaCompra(metodoDePagamento, itens) {
-        let soma=0;
+        let sum=0;
         let res = "R$ ";
         res = this.verifyInvalidInputs(metodoDePagamento, itens);
         if (res != "R$ ") {
             return res;
         }
         else {
-            soma = this.calculaItens(itens);
-            soma = this.calculatePayMethod(soma, metodoDePagamento);
-            res+=soma;
+            sum = this.calculateItens(itens);
+            sum = this.calculatePayMethod(sum, metodoDePagamento);
+            res+=sum;
             res=res.replace(".",",");
             return res;
         }
@@ -47,8 +47,8 @@ class CaixaDaLanchonete {
         }
     }
 
-    calculaItens(itens) {
-        var actualItem = "";
+    calculateItens(itens) {
+        let actualItem = "";
         let sum = 0;
         for (let i = 0; i < itens.length; i++) {
             actualItem = itens[i].split(",");
